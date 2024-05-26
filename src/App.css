@@ -1,0 +1,19 @@
+
+Canvas{
+    position: relative;
+    top: -100px;
+    width: inherit;
+    height: 100vh;
+    background-image: url(./assets/headquarter.png);
+    background-position: center;
+    /* margin-bottom:50px ; */
+}
+.logo{
+    width: 132px;
+}
+header{
+        display: flex;
+        flex-direction: column;
+}
+
+
