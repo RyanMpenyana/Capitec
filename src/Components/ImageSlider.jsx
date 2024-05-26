@@ -3,6 +3,12 @@ import styled from 'styled-components'
 import Image from '../assets/international.png'
 import { ServiceContainer } from './Services'
 import { Button } from './Button'
+// import Splide from '@splidejs/splide'
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/react-splide/css';
+import WhatsBetter from '../assets/whatsbetter.png'
+import Finance from '../assets/financialresults.png'
+
 
 export const Slider = styled.div`
     display : grid;
@@ -36,7 +42,8 @@ export const Slider = styled.div`
 
 const ImageSlider = () => {
   return (
-      
+     <Splide>
+        <SplideSlide>
        <Slider>
                 <SliderImage src={Image}/>
         <SliderContainer>
@@ -45,6 +52,28 @@ const ImageSlider = () => {
                <Button>Find out more</Button>
         </SliderContainer>
     </Slider>
+    </SplideSlide>
+    <SplideSlide>
+    <Slider>
+                <SliderImage src={WhatsBetter}/>
+        <SliderContainer>
+               <h1>Take your banking to the next level</h1>
+               <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione quae at beatae repudiandae deleniti molestias quod qui aspernatur odit veniam?</p>
+               <Button>Find out more</Button>
+        </SliderContainer>
+    </Slider>
+    </SplideSlide>
+    <SplideSlide>
+    <Slider>
+                <SliderImage src={Finance}/>
+        <SliderContainer>
+               <h1>Take your banking to the next level</h1>
+               <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione quae at beatae repudiandae deleniti molestias quod qui aspernatur odit veniam?</p>
+               <Button>Find out more</Button>
+        </SliderContainer>
+    </Slider>
+    </SplideSlide>
+    </Splide> 
      
   )
 }

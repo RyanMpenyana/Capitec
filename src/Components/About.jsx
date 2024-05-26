@@ -15,7 +15,7 @@ const About = () => {
     <>
     <CardFlex>
         {CardData.map((item, index ) => (
-            <Card fontSize={'14px'} key={index} padding={'60px 34px 28px'} Width={item.Width}  Image={item.Image} description={item.description} sub_heading={item.sub_heading}/>
+            <Card fontSize={'14px'} key={index}  padding={'60px 34px 28px'} Width={item.Width}  Image={item.Image} description={item.description} sub_heading={item.sub_heading}/>
         ))}
     </CardFlex>
      <ImageSlider/>
