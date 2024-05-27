@@ -8,6 +8,7 @@ import Finance from '../assets/financialresults.png'
 import { SecondCard } from '../Data'
 
 export const Section = styled.section`
+padding : 2.2px ;
 h1{
    text-align :center;
    justify-self : center;
@@ -21,6 +22,17 @@ a{
     font-size : 14px;
     align-content: flex-end;
     height: 50px
+}
+
+@media only screen and (max-width : 500px){
+    h1{
+        text-align :center;
+        justify-self : center;
+        font-size : 30px;
+        margin-bottom : 32px;
+        font-weight : 600;
+
+     }
 }
 `
 

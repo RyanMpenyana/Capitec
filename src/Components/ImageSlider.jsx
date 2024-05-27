@@ -1,9 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Image from '../assets/international.png'
-import { ServiceContainer } from './Services'
 import { Button } from './Button'
-// import Splide from '@splidejs/splide'
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import WhatsBetter from '../assets/whatsbetter.png'
@@ -19,7 +17,15 @@ export const Slider = styled.div`
     margin-bottom : 80px;
     width : 90%;
     margin : 0 auto 80px;
-    padding : ${props => props.$customPadding}
+    padding : ${props => props.$customPadding};
+    
+    @media screen and (max-width : 500px){
+        width : 95%;
+        display : flex;
+        flex-direction : column;
+        margin-top : 32px
+    }
+
     `
     export const SliderContainer = styled.div`
     padding : 60px 80px;
@@ -27,7 +33,9 @@ export const Slider = styled.div`
     h1, p{
         margin-bottom : 25px
     }
-
+    @media screen and (max-width : 500px){
+        padding : 40px 20px;
+    }
     `
     const SliderImage = styled.img`
     width : 100%;
@@ -37,12 +45,26 @@ export const Slider = styled.div`
     background-size: contain;
     background-repeat: no-repeat;
     border-radius: 10px 0 0;
+    
+    @media screen and (max-width: 500px){
+        border-radius: 10px 10px 0 0;
+        height : 100%
+    }
 `
 
 
 const ImageSlider = () => {
   return (
-     <Splide>
+     <Splide options={{
+        autoPlay : true,
+        rewind: true,
+        breakpoints:{
+            500 : {
+                arrows : false
+            }
+        }
+     }
+     }>
         <SplideSlide>
        <Slider>
                 <SliderImage src={Image}/>
@@ -53,6 +75,7 @@ const ImageSlider = () => {
         </SliderContainer>
     </Slider>
     </SplideSlide>
+
     <SplideSlide>
     <Slider>
                 <SliderImage src={WhatsBetter}/>
@@ -63,9 +86,10 @@ const ImageSlider = () => {
         </SliderContainer>
     </Slider>
     </SplideSlide>
+
     <SplideSlide>
     <Slider>
-                <SliderImage src={Finance}/>
+                <SliderImage src={Finance} height={200} />
         <SliderContainer>
                <h1>Take your banking to the next level</h1>
                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione quae at beatae repudiandae deleniti molestias quod qui aspernatur odit veniam?</p>

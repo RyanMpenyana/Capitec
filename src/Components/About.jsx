@@ -7,7 +7,13 @@ import { CardData } from '../Data'
 
 export const CardFlex = styled.div`
     display: flex;
-    justify-content: center
+    justify-content: center;
+    
+    @media only screen and (max-width: 500px){
+        
+        flex-direction: column;
+
+    }
 `
 
 const About = () => {

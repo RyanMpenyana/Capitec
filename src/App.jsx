@@ -5,6 +5,8 @@ import { Center } from './Components/Containers'
 import About from './Components/About'
 import { BlogSection } from './Components/BlogSection'
 import { Footer } from './Components/Footer'
+import Header from './header'
+import Title from './Components/Title'
 
 
 
@@ -15,8 +17,9 @@ const App = () => {
 
   return (
     <>
-     <Navbar/>
+    <Header/>
      <Hero/>
+     {/* <Title/> */}
     <Center>
      <About/>
      <BlogSection/>

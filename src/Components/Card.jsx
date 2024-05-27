@@ -8,7 +8,6 @@ const CardDiv = styled.div`
     // padding : ${props => !props.$cardPadding ? '30px 34px 28px' : props.$cardPadding };
     color: #3a3a3a;
     border-radius : 8px;
-    // max-height : 435px auto;
     margin : 10px 15px;
     max-width : 350px;
     transition: .1s ease-in ;
@@ -22,9 +21,12 @@ const CardDiv = styled.div`
     img{
         margin-bottom: 10px;
     }
-    // h3{
-    //     font-size: 18px;
-    // }
+    
+    @media only screen and (max-width : 500px){
+        max-width : 430px;
+        margin : 10px ;
+        
+    }
 
     
     `

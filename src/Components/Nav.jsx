@@ -1,42 +1,50 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Button } from './Button'
 import Chevron from '../assets/more-chevron.svg'
 import Banking from '../assets/internet-banking.svg'
-
+import Hamburger from '../Components/Hamburger'
 import Input from './Input'
-import { Search } from './Input'
 const Nav = styled.nav`
     width : inherit;
     display: flex;
     justify-content : space-between;
     background: ${props => props.$NavBackground ? props.$NavBackground : '#ffff'};
-    padding: 10px;
-    justify-content: ${props =>  props.$end ?  'flex-end' : 'space-between'};
+    padding: 10px 5%;
+    // justify-content: ${props =>  props.$end ?  'flex-end' : 'space-between'};
+    
+    @media only screen and (max-width:500px){
 
+        form{
+            display : none ;
+        }
+    }
 `
 const Logo = styled.img`
     font-size: 24px;
     width : 132px;
-`
-const Header = styled.header`
-    display : flex;
-    justify-content : center;
-    position: sticky;
-    top : 0;
-    z-index:2;
-
+    @media screen and (max-width : 430px){
+        width : 100px;
+    };
+    
 `
 const UL = styled.ul`
     list-style: none;
     display:flex;
     justify-content: space-between;
     align-items: center;
-    width : 360px;
+    max-width : 360px;
+    width : 100%;
     li > a{
         font-weight : 500;
         text-decoration: none;
         color:#3a3a3a
+    }
+    @media only screen and (max-width: 500px){
+        width : max-content ;
+        li{
+            display: none;
+        }
     }
 `
 
@@ -44,29 +52,54 @@ const UL = styled.ul`
     display : flex;
     align-items: center;
     justify-content: space-between;
-    width : 275px
+    width : 275px;
+  
     `
-    const SubNav = styled.nav`
-    display : flex;
-    width : 300px;
-    justify-content : space-between;
-    gap : 10
-`
-
-
-
-
 const MoreBtnDiv = styled.div`
     display:flex;
-    align-items : center
+    align-items : center;
+    justify-content: space-between;
+    width : 60px;
+
+    @media only screen and (max-width:500px){
+     display : none;
+    }
 `
 const SignIn = styled.div`
-    align-items: center
+    align-items: center;
+     color: #3a3a4a;
+    span{
+        font-weight: 600 !important;
+        &:hover{
+            color : #009de0;
+        }
+    }
+    p{
+        font-size: 10px;
+    }
+    
+  
 `
-const Navbar = () => {
+const BankingDiv = styled.div`
+display : flex;
+
+  
+`
+const Navbar = ({onClick}) => {
+    const [width , setWidth] = useState(window.innerWidth)
+
+    useEffect(() => {
+        window.addEventListener('resize',  () => {
+            setWidth(window.innerWidth)
+        })
+        return() => {
+            window.removeEventListener('resize', window)
+        }
+    })
+
   return (
-    <Header>
-           <Nav> 
+    <>
+        <Nav onClick={onClick}> 
             <UL>
                 <Logo src="../../public/capitec-logo.svg" alt="" />
                 <li><a href="#">Personal</a></li>
@@ -74,41 +107,29 @@ const Navbar = () => {
             </UL>
 
                 <Input placeholder={'Find ways to bank better'}/>
-
+                {width <= 500 
+                ?
+                <Hamburger/> :
             <MoreButton>
-             <MoreBtnDiv>
-             <p>Menu</p>
-                <Search>
-                    <img src={Chevron} alt="" />
-                </Search>
-             </MoreBtnDiv>
-            <div>
-                <img src={Banking} alt="icon" />
-            </div>
-            <SignIn>
-                <div>Online Banking</div>
-                <p>Sign in</p>
-            </SignIn>
-            </MoreButton>
-           </Nav>
-           <Nav $end $NavBackground={'rgba(247,247,247,.8)'}>
-                <SubNav>
-                    <Button>
-                        Get the App
-                    </Button>
-                    <Button>
-                        Switch to Capitec
-                    </Button>
-                </SubNav>
-           </Nav>
-    </Header>
+            <MoreBtnDiv>
+               <p>Menu</p>
+               <img src={Chevron} alt="" />
+            </MoreBtnDiv>
+
+            <BankingDiv>
+               <img src={Banking} alt="icon" />
+                
+             </BankingDiv>
+             <SignIn> 
+                <span>Online Banking</span> 
+                <p>Sign in</p> 
+             </SignIn> 
+            </MoreButton> 
+                }
+        </Nav>
+      
+    </>
   )
 }
 
 export default Navbar      
-//<nav id='navbar'>
-// <div id='services'>
-// <img className='logo' src="../../public/capitec-logo.svg" alt="Logo" />
-
-// </div>
-// </nav>
