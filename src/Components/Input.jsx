@@ -11,6 +11,9 @@ const Form = styled.form`
     border-radius: 5px;
     z-index : 2;
     
+    @media only screen and (max-width : 1024px){
+        width : 250px
+    }
     `
 
 export const InputField = styled.input`

@@ -14,6 +14,7 @@ export const Button = styled.button`
     &:hover{
         background-color: #0477BF;
         border: 2px solid  transparent;
+        color : white;
     };
 
     @media only screen and (max-width : 500px){

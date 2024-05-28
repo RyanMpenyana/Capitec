@@ -11,6 +11,10 @@ export const FooterContainer = styled.footer`
     height : 100vh;
 
   }
+
+  @media only screen and (max-width : 500px){
+    margin-top: 25px
+  }
 ` 
 
 export const FooterBanner = styled.label`
@@ -24,7 +28,18 @@ color : white ;
 h1{
     font-size : 42px;
     font-family : helvetica;
+}
 
+@media only screen and (max-width : 768px){
+    flex-direction : column;
+    padding : 24px 5%;
+    h1{
+        align-self: center;
+        font-size : 16px;
+        font-family : helvetica;
+        margin-bottom : 10px
+    }
+    
 }
 `
 

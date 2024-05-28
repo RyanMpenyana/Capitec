@@ -7,20 +7,30 @@ import { BlogSection } from './Components/BlogSection'
 import { Footer } from './Components/Footer'
 import Header from './header'
 import Title from './Components/Title'
+import { useEffect, useState } from 'react'
 
 
 
 
 
 const App = () => {
+    const [width , setWidth] = useState(window.innerWidth)
 
+    useEffect(() => {
+        window.addEventListener('resize',  () => {
+            setWidth(window.innerWidth)
+        })
+        return() => {
+            window.removeEventListener('resize', window)
+        }
+    })
 
   return (
     <>
     <Header/>
      <Hero/>
-     {/* <Title/> */}
-    <Center>
+    {width <= 1024 && <Title/>}
+     <Center>
      <About/>
      <BlogSection/>
     </Center>

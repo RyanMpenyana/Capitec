@@ -9,7 +9,7 @@ import One from '../assets/globalonesvg.svg'
 import Live from '../assets/LiveBetter.svg'
 import Biz from '../assets/GlobalBiz.svg'
 import { Button } from './Button'
-import { Slider } from './ImageSlider'
+import { Slider } from './ImageSlider/ImageSlider'
 import Mobile from '../assets/global_one_group_landing.png'
 import MobileAd from '../assets/live-better-ad-card.png'
 
@@ -26,9 +26,10 @@ max-height : 500px;
         font-size: 16px;
         max-width: 500px
     }
-    @media screen and (max-width : 500px){
+    @media screen and (max-width : 900px){
         margin : 0 0 50px;
         width : 100%;
+        padding : 0 35px;
         
         img:nth-child(2){
             align-self : end;
@@ -36,12 +37,15 @@ max-height : 500px;
             height : 400px;
             width : 60%;
         }
-       
+        
+    }
+    
+    @media screen and (max-width : 430px){
+        padding : 0 5px 
     }
     `
     export const ServiceContainer = styled.div`
-    // padding : 0 10x;
-    // margin-left: 50px;
+       padding : 0 10px;
        width: 100%;
     
        
@@ -82,11 +86,15 @@ max-height : 500px;
         margin-bottom: 15px;
     }
 
-    @media only screen and (max-width : 500px){
+    @media only screen and (max-width : 1024px){
+        padding : 10% 10% 0 ;
+        
+        }
+
+    @media only screen and (max-width : 977px){
         padding : 15% 0px 0 10px;
         img:nth-child(1){
-            height : 16.77px;
-            margin-bottom: 10px
+            margin-bottom: 10px;
         }
         h2{
             justify-Content : space-around;
@@ -95,6 +103,7 @@ max-height : 500px;
             font-weight: 600;
             line-height : 1.2em
         }
+      
     }
 `
 
@@ -125,7 +134,7 @@ const Services = () => {
                 <Button>Find out more</Button>
             </ServiceContent>
             
-                <img style={{display: 'flex' , alignSelf : 'flex-start'}} src={width <= 500 ? Mobile : GlobalHero} height={width <= 500 ? '50%' : '80%'}  alt="" />
+                <img  src={width <= 900 ? Mobile : GlobalHero} height={width <= 900  ? '100%' : '85%'}  alt="" />
             
         </ServiceDiv>
         <Slider $customPadding={ width <= 500 ? '40px 10px' :'60px'} >
@@ -139,12 +148,12 @@ const Services = () => {
         </Slider>
         <ServiceDiv >
             <ServiceContent >
-            <img src={Live} alt="icon" />
+            <img src={Live} alt="icon"   height={width <= 500 && '50px'}/>
                 <h2>Open an account</h2>
                 <p>Our Live Better rewards have no complicated levels and no fees, so you can get real cash back, partner discounts and easy ways to save your money.</p>
                 <Button>I want cash Back</Button>
             </ServiceContent>
-            <img src={ width <= 500 ? MobileAd : LiveBetter} width={'60%'} alt="img" />
+            <img src={ width <= 900 ? MobileAd : LiveBetter} height={width <= 900  ? '100%' : '100%'} width={'40%'} alt="img" />
         </ServiceDiv>
     
         </ServiceContainer>

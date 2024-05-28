@@ -8,7 +8,8 @@ border: none;
 background : transparent;
 display : flex;
 align-self : center;
-padding : 8px 16px;`
+padding : 16px;
+`
 
 
 const Search = () => {

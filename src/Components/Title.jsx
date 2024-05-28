@@ -10,6 +10,9 @@ const TitleContainer = styled.div`
         color : #009de0;
         margin-bottom : 32px
     }
+    button{
+        width: 100%;
+    }
 `
 
 const Title = () => {

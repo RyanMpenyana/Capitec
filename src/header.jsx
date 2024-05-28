@@ -3,8 +3,7 @@ import Navbar from './Components/Nav'
 import styled from 'styled-components'
 import { Button } from './Components/Button'
 import { createPortal } from 'react-dom'
-// const HeaderContainer = styled.div`
-//     padding : 0 15%;
+
 
 const HeaderContainer = styled.header`
     width:100%;
@@ -13,13 +12,11 @@ const HeaderContainer = styled.header`
     position: sticky;
     top : 0;
     z-index:2;
-    // background-color: blue;
     font-family : helvetica;
     flex-direction: column;
 
     @media screen and (max-width : 430px){
         width : 100%;
-        // background : red
     }
     
     `
@@ -36,7 +33,7 @@ const HeaderContainer = styled.header`
     `
     const SubNavContent = styled.div`
     display : flex;
-    width :300px;
+    width :320px;
     justify-content: space-between;
     padding: 10px 0;
     
@@ -46,7 +43,6 @@ const HeaderContainer = styled.header`
         button{
             margin : 0 8px;
             padding: 5px 0;
-            
         }
     }
         
@@ -58,7 +54,6 @@ const Header = () => {
   return (
     createPortal(  <HeaderContainer>
         <Navbar onClick={() => setState(false)}/>
-       {!state && <Navbar/>}
          <SubNav>
             <SubNavContent>
             <Button $bgColor='white' $blue $padding={'0 30px'}>

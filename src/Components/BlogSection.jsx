@@ -2,9 +2,6 @@ import React from 'react'
 import Card from './Card'
 import { CardFlex } from './About'
 import styled from 'styled-components'
-import Work from '../assets/workwithus.png'
-import MoneyUp from '../assets/moneyup.png'
-import Finance from '../assets/financialresults.png'
 import { SecondCard } from '../Data'
 
 export const Section = styled.section`
@@ -42,7 +39,7 @@ export const BlogSection = () => {
         <h1>We believe in giving back and paying it forward</h1>
     <CardFlex>
             {SecondCard.map((item, index) => (
-                <Card key={index} more={'Read more'} padding={'35px 30px 30px'} Height={'200px'} Work={item.Image}  sub_heading={item.sub_heading} description={item.description}  Width='100%'  />
+                <Card key={index} bg={item.Image} more={'Read more'} padding={'35px 30px 30px'} Height={'200px'} Work={true}   sub_heading={item.sub_heading} description={item.description}  Width='100%'  />
             ))}
     </CardFlex>
     </Section>

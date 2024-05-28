@@ -11,9 +11,13 @@ const Nav = styled.nav`
     justify-content : space-between;
     background: ${props => props.$NavBackground ? props.$NavBackground : '#ffff'};
     padding: 10px 5%;
-    // justify-content: ${props =>  props.$end ?  'flex-end' : 'space-between'};
+    justify-content: ${props =>  props.$end ?  'flex-end' : 'space-between'};
     
-    @media only screen and (max-width:500px){
+
+    @media only screen and (max-width: 1024px){
+        padding: 10px 2%;
+    }
+    @media only screen and (max-width:768px){
 
         form{
             display : none ;
@@ -40,7 +44,7 @@ const UL = styled.ul`
         text-decoration: none;
         color:#3a3a3a
     }
-    @media only screen and (max-width: 500px){
+    @media only screen and (max-width: 768px){
         width : max-content ;
         li{
             display: none;
@@ -61,7 +65,7 @@ const MoreBtnDiv = styled.div`
     justify-content: space-between;
     width : 60px;
 
-    @media only screen and (max-width:500px){
+    @media only screen and (max-width:786px){
      display : none;
     }
 `
@@ -107,7 +111,7 @@ const Navbar = ({onClick}) => {
             </UL>
 
                 <Input placeholder={'Find ways to bank better'}/>
-                {width <= 500 
+                {width <= 768 
                 ?
                 <Hamburger/> :
             <MoreButton>
