@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Button } from './Button'
 import Chevron from '../assets/more-chevron.svg'
 import Banking from '../assets/internet-banking.svg'
 import Hamburger from '../Components/Hamburger'
 import Input from './Input'
+import Capitec from '../assets/capitec-logo.svg'
 const Nav = styled.nav`
     width : inherit;
     display: flex;
@@ -105,7 +105,7 @@ const Navbar = ({onClick}) => {
     <>
         <Nav onClick={onClick}> 
             <UL>
-                <Logo src="../../public/capitec-logo.svg" alt="" />
+                <Logo src={Capitec} alt="" />
                 <li><a href="#">Personal</a></li>
                 <li><a href='#'>Business</a></li>
             </UL>
